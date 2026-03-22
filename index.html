@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neeta Tagare | Professional Fiduciary</title>
+<meta name="description" content="Neeta Tagare is a California Licensed Professional Fiduciary serving families, individuals, and legal professionals with trust administration, conservatorships, estate management, and more.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --forest:      #1C3D2E;
+  --forest-deep: #122A1F;
+  --forest-mid:  #2A5940;
+  --gold:        #B8943F;
+  --gold-light:  #D4AA5A;
+  --cream:       #FAF8F3;
+  --cream-dark:  #F0EDE4;
+  --stone:       #6B6560;
+  --ink:         #1A1A18;
+  --border:      #DDD9D0;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans:  'DM Sans', system-ui, sans-serif;
+  --ease:  0.25s ease;
+}
+
+body { font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.6; overflow-x: hidden; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(18,42,31,0.97);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(184,148,63,0.2);
+}
+.nav-inner {
+  max-width: 1100px; margin: 0 auto; padding: 0 2rem;
+  height: 64px; display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo { text-decoration: none; }
+.nav-logo-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--cream); letter-spacing: 0.03em; }
+.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
+.nav-links a {
+  color: rgba(250,248,243,0.65); text-decoration: none;
+  font-size: 0.82rem; letter-spacing: 0.05em;
+  transition: color var(--ease);
+}
+.nav-links a:hover { color: var(--cream); }
+.nav-cta {
+  background: var(--gold) !important; color: var(--forest-deep) !important;
+  padding: 0.5rem 1.1rem !important; font-weight: 500 !important;
+  transition: background var(--ease) !important;
+}
+.nav-cta:hover { background: var(--gold-light) !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { display: block; width: 22px; height: 1.5px; background: var(--cream); }
+
+/* ── PAGES ── */
+.page { display: none; padding-top: 64px; }
+.page.active { display: block; }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  height: calc(100vh - 64px);
+  min-height: 520px;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0;
+  background: var(--forest-deep);
+  overflow: hidden;
+}
+/* Bay Area SVG landscape fills the right half */
+.hero-bg svg {
+  position: absolute; right: 0; top: 0; height: 100%; width: 55%;
+  opacity: 0.5;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(18,42,31,0.92) 35%, rgba(18,42,31,0.55) 70%, rgba(18,42,31,0.4) 100%);
+}
+.hero-content {
+  position: relative; z-index: 1;
+  padding: 2rem;
+  max-width: 680px;
+  animation: fadeUp 0.9s ease both;
+}
+.hero-tagline {
+  font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--gold-light); margin-bottom: 1.5rem; font-weight: 400;
+}
+.hero h1 {
+  font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 300; color: var(--cream); line-height: 1.15;
+  margin-bottom: 1.25rem;
+}
+.hero h1 em { font-style: italic; color: var(--gold-light); }
+.hero-desc {
+  font-size: 1rem; color: rgba(250,248,243,0.65);
+  line-height: 1.8; font-weight: 300;
+  max-width: 480px; margin: 0 auto 2.5rem;
+}
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn { display: inline-block; text-decoration: none; cursor: pointer; font-family: var(--sans); font-size: 0.82rem; font-weight: 500; letter-spacing: 0.07em; padding: 0.8rem 1.75rem; transition: background var(--ease), color var(--ease), border-color var(--ease), transform var(--ease); border: none; }
+.btn:hover { transform: translateY(-1px); }
+.btn-gold { background: var(--gold); color: var(--forest-deep); }
+.btn-gold:hover { background: var(--gold-light); }
+.btn-ghost { background: transparent; color: var(--cream); border: 1px solid rgba(250,248,243,0.3); }
+.btn-ghost:hover { border-color: var(--gold-light); color: var(--gold-light); }
+.btn-forest { background: var(--forest); color: var(--cream); }
+.btn-forest:hover { background: var(--forest-mid); }
+.btn-outline-dark { background: transparent; color: var(--forest); border: 1px solid var(--border); }
+.btn-outline-dark:hover { border-color: var(--forest); }
+
+/* ── CONTENT SECTIONS ── */
+.section { padding: 5rem 0; }
+.section-alt { background: var(--cream-dark); }
+.section-dark { background: var(--forest-deep); }
+.inner { max-width: 1100px; margin: 0 auto; padding: 0 2rem; }
+.inner-narrow { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+.label {
+  font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 0.85rem; display: block;
+}
+h2.section-title {
+  font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 300; color: var(--ink); line-height: 1.25; margin-bottom: 1.25rem;
+}
+h2.section-title em { font-style: italic; color: var(--forest-mid); }
+h2.section-title-light { color: var(--cream); }
+h2.section-title-light em { color: var(--gold-light); }
+.body-text { font-size: 0.95rem; color: var(--stone); line-height: 1.9; margin-bottom: 1rem; font-weight: 300; }
+.divider { border: none; border-top: 1px solid var(--border); margin: 3rem 0; }
+.divider-light { border-color: rgba(250,248,243,0.1); }
+
+/* ── INTRO (two-col) ── */
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
+.pull-quote {
+  font-family: var(--serif); font-size: 1.35rem; font-weight: 300;
+  color: var(--forest); font-style: italic; line-height: 1.6;
+  border-left: 2px solid var(--gold); padding-left: 1.5rem; margin: 2rem 0;
+}
+
+/* ── WHO I SERVE (simple list) ── */
+.serve-list { list-style: none; margin-top: 2rem; }
+.serve-list li {
+  padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+  display: flex; gap: 1rem; align-items: flex-start;
+}
+.serve-list li:last-child { border-bottom: none; }
+.serve-list-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; margin-top: 0.6rem; flex-shrink: 0; }
+.serve-list-title { font-size: 0.9rem; font-weight: 500; color: var(--forest); margin-bottom: 0.2rem; }
+.serve-list-desc { font-size: 0.82rem; color: var(--stone); line-height: 1.6; font-weight: 300; }
+
+/* ── SERVICES SIMPLE LIST ── */
+.svc-list { margin-top: 1rem; }
+.svc-item {
+  padding: 1.75rem 0; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 2.5rem 1fr; gap: 1.5rem; align-items: start;
+}
+.svc-item:last-child { border-bottom: none; }
+.svc-num { font-family: var(--serif); font-size: 1rem; color: var(--gold); font-weight: 400; padding-top: 0.15rem; }
+.svc-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; color: var(--forest); margin-bottom: 0.5rem; }
+.svc-desc { font-size: 0.88rem; color: var(--stone); line-height: 1.75; font-weight: 300; }
+
+/* ── PROCESS ── */
+.process-list { margin-top: 3rem; display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; }
+.process-step-num {
+  font-family: var(--serif); font-size: 2.5rem; font-weight: 300;
+  color: var(--gold-light); opacity: 0.6; line-height: 1; margin-bottom: 1rem;
+}
+.process-step-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--cream); margin-bottom: 0.6rem; }
+.process-step-desc { font-size: 0.85rem; color: rgba(250,248,243,0.5); line-height: 1.8; font-weight: 300; }
+
+/* ── TESTIMONIALS ── */
+.testi-list { margin-top: 3rem; display: flex; flex-direction: column; gap: 0; }
+.testi-item {
+  padding: 2.5rem 0; border-bottom: 1px solid var(--border);
+  display: grid; grid-template-columns: 1fr 160px; gap: 3rem; align-items: start;
+}
+.testi-item:first-child { padding-top: 0; }
+.testi-item:last-child { border-bottom: none; }
+.testi-quote {
+  font-family: var(--serif); font-size: 1.1rem; font-weight: 300;
+  color: var(--ink); line-height: 1.75; font-style: italic;
+}
+.testi-meta { text-align: right; }
+.testi-name { font-size: 0.8rem; font-weight: 500; color: var(--forest); margin-bottom: 0.2rem; }
+.testi-role { font-size: 0.75rem; color: var(--stone); }
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--forest); padding: 4rem 0; text-align: center;
+  border-top: 1px solid rgba(184,148,63,0.15);
+}
+.cta-band h2 { font-family: var(--serif); font-size: clamp(1.6rem, 2.8vw, 2.2rem); font-weight: 300; color: var(--cream); margin-bottom: 0.75rem; }
+.cta-band p { font-size: 0.9rem; color: rgba(250,248,243,0.5); margin-bottom: 2rem; font-weight: 300; }
+.cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.cta-sub { margin-top: 1.25rem; font-size: 0.8rem; color: rgba(250,248,243,0.3); }
+.cta-sub a { color: var(--gold-light); text-decoration: none; }
+
+/* ── ABOUT ── */
+.about-hero-img {
+  width: 100%; height: 320px; background: var(--forest-deep);
+  display: flex; align-items: center; justify-content: center; overflow: hidden; position: relative;
+}
+.photo-block {
+  background: var(--cream-dark); border: 1px solid var(--border);
+  aspect-ratio: 3/4; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.75rem;
+  max-width: 280px; width: 100%;
+}
+.photo-block svg { opacity: 0.3; }
+.photo-block p { font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); }
+.creds-box {
+  background: var(--cream-dark); border: 1px solid var(--border);
+  padding: 2rem; margin-top: 2.5rem;
+}
+.creds-box-label { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.25rem; }
+.cred-row { padding: 0.8rem 0; border-bottom: 1px solid var(--border); font-size: 0.85rem; color: var(--stone); line-height: 1.5; }
+.cred-row:last-child { border-bottom: none; }
+.cred-row strong { color: var(--forest); display: block; font-weight: 500; }
+
+/* ── FEE TABLE ── */
+.fee-table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
+.fee-table th { text-align: left; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); padding: 0.75rem 0; border-bottom: 2px solid var(--border); font-weight: 500; }
+.fee-table td { padding: 1rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; color: var(--stone); }
+.fee-table tr:last-child td { border-bottom: none; }
+.fee-table td:first-child { color: var(--forest); font-weight: 500; }
+.fee-table td:last-child { font-family: var(--serif); font-size: 1.05rem; color: var(--forest-mid); }
+.policy-list { list-style: none; margin: 1.5rem 0; }
+.policy-list li { padding: 0.65rem 0 0.65rem 1.25rem; border-bottom: 1px solid var(--border); font-size: 0.88rem; color: var(--stone); line-height: 1.6; position: relative; }
+.policy-list li::before { content: ''; position: absolute; left: 0; top: 1.1rem; width: 4px; height: 1px; background: var(--gold); }
+.policy-list li:last-child { border-bottom: none; }
+.fee-note { padding: 1.5rem; background: var(--cream-dark); border-left: 2px solid var(--gold); font-size: 0.88rem; color: var(--stone); line-height: 1.8; margin: 2rem 0; }
+.regulatory { font-size: 0.73rem; color: var(--stone); line-height: 1.6; padding: 1.25rem; border: 1px solid var(--border); margin-top: 2rem; }
+
+/* ── CONTACT FORM ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.8fr; gap: 5rem; align-items: start; }
+.contact-details { margin-top: 2rem; }
+.contact-row { padding: 1rem 0; border-bottom: 1px solid var(--border); }
+.contact-row:last-child { border-bottom: none; }
+.contact-row-label { font-size: 0.67rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.3rem; }
+.contact-row-value { font-size: 0.95rem; color: var(--forest); }
+.contact-row-value a { color: var(--forest); text-decoration: none; }
+.contact-row-value a:hover { color: var(--forest-mid); }
+.contact-note { margin-top: 2rem; font-size: 0.85rem; color: var(--stone); line-height: 1.8; font-style: italic; }
+.form-group { margin-bottom: 1.25rem; }
+.form-label { display: block; font-size: 0.7rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--stone); margin-bottom: 0.45rem; }
+.form-input, .form-select, .form-textarea {
+  width: 100%; padding: 0.8rem 0.9rem; border: 1px solid var(--border);
+  background: var(--cream); font-family: var(--sans); font-size: 0.9rem; color: var(--ink);
+  outline: none; border-radius: 0; appearance: none;
+  transition: border-color var(--ease);
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--forest); }
+.form-textarea { resize: vertical; min-height: 110px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.form-submit {
+  width: 100%; background: var(--forest); color: var(--cream);
+  padding: 0.9rem; border: none; font-family: var(--sans);
+  font-size: 0.8rem; font-weight: 500; letter-spacing: 0.1em;
+  text-transform: uppercase; cursor: pointer; transition: background var(--ease);
+}
+.form-submit:hover { background: var(--forest-mid); }
+.form-success { display: none; padding: 2.5rem; background: var(--cream-dark); border: 1px solid var(--border); text-align: center; }
+.form-success h3 { font-family: var(--serif); font-size: 1.5rem; color: var(--forest); margin-bottom: 0.5rem; font-weight: 400; }
+.form-success p { font-size: 0.9rem; color: var(--stone); }
+.form-success a { color: var(--forest-mid); }
+
+/* ── FOOTER ── */
+footer { background: var(--forest-deep); padding: 3rem 0 2rem; border-top: 1px solid rgba(184,148,63,0.12); }
+.footer-grid { max-width: 1100px; margin: 0 auto; padding: 0 2rem; display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 4rem; margin-bottom: 2.5rem; }
+.footer-name { font-family: var(--serif); font-size: 1.2rem; color: var(--cream); font-weight: 400; margin-bottom: 0.3rem; }
+.footer-sub { font-size: 0.65rem; color: var(--gold-light); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1rem; }
+.footer-tagline { font-size: 0.82rem; color: rgba(250,248,243,0.3); line-height: 1.7; max-width: 260px; }
+.footer-col-label { font-size: 0.65rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.1rem; }
+.footer-links { list-style: none; }
+.footer-links li { margin-bottom: 0.55rem; }
+.footer-links a { font-size: 0.82rem; color: rgba(250,248,243,0.38); text-decoration: none; cursor: pointer; transition: color var(--ease); }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom { max-width: 1100px; margin: 0 auto; padding: 1.5rem 2rem 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+.footer-regulatory { font-size: 0.7rem; color: rgba(250,248,243,0.2); line-height: 1.6; max-width: 560px; }
+.footer-copy { font-size: 0.7rem; color: rgba(250,248,243,0.18); }
+
+/* ── ACCORDION ── */
+.accordion { margin-top: 1.5rem; border-top: 1px solid var(--border); }
+.ac-item { border-bottom: 1px solid var(--border); }
+.ac-trigger {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 1.1rem 0; text-align: left;
+  font-family: var(--sans); transition: background var(--ease);
+}
+.ac-trigger:hover .ac-name { color: var(--forest-mid); }
+.ac-num { font-family: var(--serif); font-size: 0.85rem; color: var(--gold); font-weight: 400; min-width: 1.75rem; flex-shrink: 0; }
+.ac-name { font-size: 0.95rem; font-weight: 500; color: var(--forest); flex: 1; }
+.ac-icon { font-size: 1.2rem; color: var(--stone); font-weight: 300; transition: transform var(--ease), color var(--ease); flex-shrink: 0; line-height: 1; }
+.ac-trigger.open .ac-icon { transform: rotate(45deg); color: var(--forest); }
+.ac-trigger.open .ac-name { color: var(--forest-mid); }
+.ac-body { display: none; padding: 0 0 1.25rem 3rem; }
+.ac-body p { font-size: 0.88rem; color: var(--stone); line-height: 1.8; font-weight: 300; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 860px) {
+  .two-col, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .process-list { grid-template-columns: 1fr; gap: 2rem; }
+  .testi-item { grid-template-columns: 1fr; gap: 1rem; }
+  .testi-meta { text-align: left; }
+  .nav-links { display: none; }
+  .nav-links.open { display: flex; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: var(--forest-deep); padding: 1.5rem 2rem; gap: 1rem; border-bottom: 1px solid rgba(184,148,63,0.15); z-index: 200; }
+  .hamburger { display: flex; }
+  .form-row { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-inner">
+    <a class="nav-logo" href="#" onclick="show('home'); return false;">
+      <span class="nav-logo-name">Neeta Tagare</span>
+    </a>
+    <div class="hamburger" onclick="document.getElementById('nav-links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" onclick="show('home'); return false;">Home</a></li>
+      <li><a href="#" onclick="show('about'); return false;">About</a></li>
+      <li><a href="#" onclick="show('services'); return false;">Services</a></li>
+      <li><a href="#" onclick="show('fees'); return false;">Fee Schedule</a></li>
+      <li><a href="#" onclick="show('contact'); return false;" class="nav-cta">Free Consultation</a></li>
+    </ul>
+  </div>
+</nav>
+
+
+<!-- ══════════════ HOME ══════════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero with Bay Area SVG landscape -->
+  <div class="hero">
+    <div class="hero-bg">
+      <!-- Bay Area skyline + bay SVG -->
+      <svg viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <!-- Sky gradient -->
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#2A5C8A" stop-opacity="0.6"/>
+            <stop offset="100%" stop-color="#1C3D2E" stop-opacity="0.3"/>
+          </linearGradient>
+          <linearGradient id="water" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1A3D5A" stop-opacity="0.8"/>
+            <stop offset="100%" stop-color="#122A1F" stop-opacity="0.9"/>
+          </linearGradient>
+          <linearGradient id="hills" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#1C4A30"/>
+            <stop offset="100%" stop-color="#122A1F"/>
+          </linearGradient>
+        </defs>
+        <!-- Sky -->
+        <rect width="800" height="500" fill="url(#sky)"/>
+        <!-- Background hills (Marin/East Bay) -->
+        <path d="M0 280 Q80 220 160 240 Q240 260 320 220 Q380 190 440 210 Q520 230 580 200 Q650 170 720 195 Q760 210 800 200 L800 500 L0 500Z" fill="url(#hills)" opacity="0.6"/>
+        <!-- Bay water -->
+        <path d="M0 340 Q100 330 200 345 Q350 355 500 335 Q620 320 800 340 L800 500 L0 500Z" fill="url(#water)"/>
+        <!-- Bay Bridge simplified -->
+        <line x1="340" y1="260" x2="620" y2="260" stroke="rgba(184,148,63,0.4)" stroke-width="2"/>
+        <line x1="340" y1="260" x2="340" y2="340" stroke="rgba(184,148,63,0.3)" stroke-width="1.5"/>
+        <line x1="620" y1="260" x2="620" y2="340" stroke="rgba(184,148,63,0.3)" stroke-width="1.5"/>
+        <path d="M340 260 Q480 230 620 260" fill="none" stroke="rgba(184,148,63,0.25)" stroke-width="1"/>
+        <!-- Cable lines -->
+        <path d="M340 260 Q410 280 480 260" fill="none" stroke="rgba(184,148,63,0.2)" stroke-width="0.8"/>
+        <path d="M480 260 Q550 280 620 260" fill="none" stroke="rgba(184,148,63,0.2)" stroke-width="0.8"/>
+        <!-- SF skyline silhouette -->
+        <path d="M60 300 L60 260 L75 260 L75 240 L85 240 L85 230 L95 230 L95 220 L105 220 L105 230 L115 230 L115 215 L125 215 L125 225 L135 225 L135 210 L145 210 L145 225 L155 225 L155 215 L165 215 L165 230 L175 230 L175 240 L190 240 L190 300Z" fill="rgba(18,42,31,0.8)"/>
+        <!-- Coit Tower hint -->
+        <rect x="108" y="195" width="5" height="25" fill="rgba(28,61,46,0.7)"/>
+        <polygon points="110.5,193 107,200 114,200" fill="rgba(28,61,46,0.7)"/>
+        <!-- Water reflections -->
+        <path d="M100 360 Q200 355 300 362" stroke="rgba(184,148,63,0.1)" stroke-width="1" fill="none"/>
+        <path d="M400 355 Q500 348 600 356" stroke="rgba(184,148,63,0.1)" stroke-width="1" fill="none"/>
+        <!-- Stars / lights -->
+        <circle cx="680" cy="80" r="1.5" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="720" cy="55" r="1" fill="rgba(255,255,255,0.3)"/>
+        <circle cx="650" cy="100" r="1" fill="rgba(255,255,255,0.25)"/>
+        <circle cx="740" cy="90" r="1.5" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="760" cy="60" r="1" fill="rgba(255,255,255,0.2)"/>
+        <!-- Golden Gate (simplified) -->
+        <rect x="490" y="230" width="6" height="80" fill="rgba(184,148,63,0.35)"/>
+        <rect x="560" y="235" width="6" height="75" fill="rgba(184,148,63,0.35)"/>
+        <path d="M490 250 Q528 235 566 250" fill="none" stroke="rgba(184,148,63,0.3)" stroke-width="1.5"/>
+        <line x1="430" y1="265" x2="630" y2="265" stroke="rgba(184,148,63,0.25)" stroke-width="1.5"/>
+      </svg>
+    </div>
+    <div class="hero-content">
+      <div class="hero-tagline">California Licensed Professional Fiduciary</div>
+      <h1>Protect, care, and<br>plan for your <em>loved ones</em></h1>
+      <p class="hero-desc">When managing a trust, navigating a conservatorship, or settling an estate feels like too much, I handle it for you. Compassionate, professional fiduciary services for families and individuals.</p>
+      <div class="hero-btns">
+        <a href="#" class="btn btn-gold" onclick="show('contact'); return false;">Schedule a Free Consultation</a>
+        <a href="#" class="btn btn-ghost" onclick="show('services'); return false;">Our Services</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <div class="inner">
+      <div class="two-col">
+        <div>
+          <span class="label">What I Do</span>
+          <h2 class="section-title">Here for you when it matters <em>most</em></h2>
+          <p class="body-text">Trust administration, conservatorships, and estate management are complex and emotionally draining, especially during the moments when your family is already stretched thin.</p>
+          <p class="body-text">As a California Licensed Professional Fiduciary, I take on the legal, financial, and administrative complexity so your family does not have to. Every client receives my personal attention.</p>
+          <div class="pull-quote">"My only obligation is to you and your loved ones. No conflicts of interest, and no personal stake in any outcome other than getting it right."</div>
+          <a href="#" class="btn btn-forest" onclick="show('about'); return false;">About Neeta</a>
+        </div>
+        <div>
+          <span class="label" style="margin-bottom:1.5rem; display:block;">Who I Serve</span>
+          <ul class="serve-list">
+            <li>
+              <div class="serve-list-dot"></div>
+              <div>
+                <div class="serve-list-title">Families and Individuals</div>
+                <div class="serve-list-desc">Managing trust assets, caring for aging parents, navigating an estate. Compassionate support at every stage of the process.</div>
+              </div>
+            </li>
+            <li>
+              <div class="serve-list-dot"></div>
+              <div>
+                <div class="serve-list-title">Attorneys and CPAs</div>
+                <div class="serve-list-desc">A reliable fiduciary partner for your clients. Meticulous records, proactive communication, and business-like objectivity.</div>
+              </div>
+            </li>
+            <li>
+              <div class="serve-list-dot"></div>
+              <div>
+                <div class="serve-list-title">Courts and Probate</div>
+                <div class="serve-list-desc">Full court compliance, all reporting deadlines met, and beneficiary matters handled with professionalism.</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services overview -->
+  <div class="section section-alt">
+    <div class="inner">
+      <span class="label">Services</span>
+      <h2 class="section-title">How I can help</h2>
+      <div class="accordion" id="accordion">
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">01</span><span class="ac-name">Professional Trustee</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Independent management of trust assets, court-formatted accountings, and beneficiary communication. I follow your instructions without the influence of family dynamics or personal agendas.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">02</span><span class="ac-name">Trust Administration</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Ongoing management of simple and complex trusts: record keeping, bill payment, distributions, and coordination with attorneys and CPAs, so nothing falls through the cracks.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">03</span><span class="ac-name">Estate Administration</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>When a loved one passes, I take on the full administrative burden: gathering assets, paying debts and taxes, and transferring property to heirs, so your family can focus on grieving.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">04</span><span class="ac-name">Conservatorship</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Court-appointed management of finances and personal affairs for individuals who can no longer manage their own due to age, illness, or disability.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">05</span><span class="ac-name">Power of Attorney Agent</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Acting on your behalf for financial or healthcare decisions when you are unable to do so yourself. An important planning tool that can help families avoid conservatorship entirely.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">06</span><span class="ac-name">Probate Administration</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Guiding an estate through the court-supervised probate process from initial petition to final distribution, working closely with your probate attorney throughout.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">07</span><span class="ac-name">Special Needs Trust Administration</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Careful SNT management to preserve a beneficiary's eligibility for public benefits like SSI and Medi-Cal, while supporting their quality of life and supplemental needs.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">08</span><span class="ac-name">Advisor to Family Fiduciary</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Guidance and support for family members serving as trustee or conservator, helping them stay compliant and confident without taking over the role entirely.</p></div>
+        </div>
+        <div class="ac-item">
+          <button class="ac-trigger" onclick="toggleAc(this)">
+            <span class="ac-num">09</span><span class="ac-name">Pet Trust Administration</span><span class="ac-icon">+</span>
+          </button>
+          <div class="ac-body"><p>Ensuring your animals are cared for exactly as you intended after you are gone, working with designated caregivers and managing trust funds on their behalf.</p></div>
+        </div>
+      </div>
+      <div style="margin-top:2.5rem;">
+        <a href="#" class="btn btn-outline-dark" onclick="show('services'); return false;">View Full Service Details</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Process -->
+  <div class="section section-dark">
+    <div class="inner">
+      <span class="label">How It Works</span>
+      <h2 class="section-title section-title-light">Getting started is simple</h2>
+      <div class="process-list">
+        <div>
+          <div class="process-step-num">01</div>
+          <div class="process-step-title">Free Consultation</div>
+          <p class="process-step-desc">Reach out by phone, email, or the contact form. We will talk through your situation with no pressure and no obligation. If I am not the right fit, I will help you find someone who is.</p>
+        </div>
+        <div>
+          <div class="process-step-num">02</div>
+          <div class="process-step-title">Personalized Plan</div>
+          <p class="process-step-desc">Every case is different. I take time to understand your needs, review your documents, and explain exactly what I will do and what it will cost before we begin.</p>
+        </div>
+        <div>
+          <div class="process-step-num">03</div>
+          <div class="process-step-title">Ongoing, Attentive Service</div>
+          <p class="process-step-desc">I manage the details: paperwork, court filings, financial records, and communication, so your family can focus on what truly matters.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Testimonials -->
+  <div class="section">
+    <div class="inner-narrow">
+      <span class="label">Testimonials</span>
+      <h2 class="section-title">What clients and colleagues say</h2>
+      <div class="testi-list">
+        <div class="testi-item">
+          <p class="testi-quote">"When my mother's dementia progressed and we could no longer manage her finances as a family, Neeta stepped in and took over completely. We went from being overwhelmed to feeling like someone finally had it under control."</p>
+          <div class="testi-meta"><div class="testi-name">[Client Name]</div><div class="testi-role">Daughter of Conservatee, Bay Area</div></div>
+        </div>
+        <div class="testi-item">
+          <p class="testi-quote">"I have referred several clients to Neeta. She maintains impeccable records, communicates proactively, and handles complex family dynamics with a professionalism that makes my job significantly easier."</p>
+          <div class="testi-meta"><div class="testi-name">[Attorney Name]</div><div class="testi-role">Probate and Estate Attorney, San Jose</div></div>
+        </div>
+        <div class="testi-item">
+          <p class="testi-quote">"We did not know where to start after my father passed with no will. Neeta guided us through the entire probate process, kept us informed at every step, and resolved what we thought would be a nightmare, calmly and professionally."</p>
+          <div class="testi-meta"><div class="testi-name">[Client Name]</div><div class="testi-role">Son of Decedent, Sacramento</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="inner-narrow">
+      <h2>Ready to talk?</h2>
+      <p>Your first consultation is always free. Reach out by phone, email, or the form below and I will be in touch promptly.</p>
+      <div class="cta-btns">
+        <a href="#" class="btn btn-gold" onclick="show('contact'); return false;">Schedule a Free Consultation</a>
+        <a href="#" class="btn btn-ghost" onclick="show('services'); return false;">Explore Services</a>
+      </div>
+      <div class="cta-sub">Or call directly: <a href="tel:+10000000000">[Your Phone Number]</a></div>
+    </div>
+  </div>
+
+</div><!-- /home -->
+
+
+<!-- ══════════════ ABOUT ══════════════ -->
+<div class="page" id="page-about">
+  <div class="section">
+    <div class="inner">
+      <div class="two-col" style="align-items:start;">
+        <div>
+          <span class="label">About</span>
+          <h2 class="section-title">A fiduciary you can trust, for the moments that matter <em>most</em></h2>
+          <p class="body-text">[This is where Neeta's personal story goes. What drew you to this work? Did you care for a family member? Witness a gap in the system? Your personal motivation is your most powerful differentiator.]</p>
+          <div class="pull-quote">"Every client receives my direct attention. When you work with me, you work with me."</div>
+          <p class="body-text">I believe fiduciary work is fundamentally human work. Behind every trust document and court filing is a family, often stressed, grieving, or overwhelmed. I bring both professional rigor and genuine care to every case.</p>
+          <p class="body-text">As a California Licensed Professional Fiduciary, I am licensed and regulated by the Professional Fiduciaries Bureau of the California Department of Consumer Affairs.</p>
+          <div class="creds-box">
+            <div class="creds-box-label">License and Memberships</div>
+            <div class="cred-row"><strong>CA Licensed Professional Fiduciary</strong>License #[Your CLPF Number]</div>
+            <div class="cred-row"><strong>[Certification]</strong>[Issuing organization]</div>
+            <div class="cred-row"><strong>Professional Fiduciary Association of California (PFAC)</strong>Active Member</div>
+            <div class="cred-row"><strong>[Membership 2]</strong>e.g. National Guardianship Association</div>
+            <div class="cred-row"><strong>[Membership 3]</strong>e.g. Center for Guardianship Certification</div>
+          </div>
+          <hr class="divider">
+          <span class="label">For Attorneys and CPAs</span>
+          <p class="body-text">I understand the trust you place in a fiduciary when you refer a client. I maintain meticulous records, communicate regularly, meet court deadlines, and handle beneficiary matters with objectivity and professionalism.</p>
+          <a href="#" class="btn btn-forest" onclick="show('contact'); return false;">Get in Touch</a>
+        </div>
+        <div>
+          <div class="photo-block">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#6B6560" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <p>Your Headshot Here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-band">
+    <div class="inner-narrow">
+      <h2>Let's start with a conversation.</h2>
+      <p>Your first consultation is free, with no pressure and no obligation.</p>
+      <div class="cta-btns"><a href="#" class="btn btn-gold" onclick="show('contact'); return false;">Schedule a Free Consultation</a></div>
+    </div>
+  </div>
+</div><!-- /about -->
+
+
+<!-- ══════════════ SERVICES ══════════════ -->
+<div class="page" id="page-services">
+  <div class="section">
+    <div class="inner-narrow">
+      <span class="label">Services</span>
+      <h2 class="section-title">Professional fiduciary services</h2>
+      <p class="body-text">Expert, impartial, and compassionate service across all areas of professional fiduciary practice. If you are unsure which service applies to your situation, please reach out. Most families do not know exactly what they need until we talk.</p>
+    </div>
+    <div class="inner" style="margin-top:3rem;">
+
+      <div style="border-top:1px solid var(--border);">
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem;">
+          <div class="svc-num">01</div>
+          <div>
+            <div class="svc-title">Professional Trustee</div>
+            <p class="svc-desc" style="margin-bottom:1rem;">When a trust needs an independent, professional hand, I step in as your trustee, managing assets, handling court-formatted accountings, communicating with beneficiaries, and ensuring the trust is administered exactly as intended.</p>
+            <p class="svc-desc">Professional trustees bring objectivity that family members sometimes cannot. I follow your instructions without the influence of family dynamics, personal agendas, or conflict of interest.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">02</div>
+          <div>
+            <div class="svc-title">Trust Administration</div>
+            <p class="svc-desc" style="margin-bottom:1rem;">Trust administration involves managing and distributing trust assets according to the trust document, often after the death of a grantor, or when a beneficiary can no longer self-manage.</p>
+            <p class="svc-desc">I handle the full scope: record keeping, bill payment, asset management, distributions, tax filings, and communication with all parties, so nothing falls through the cracks.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">03</div>
+          <div>
+            <div class="svc-title">Estate Administration</div>
+            <p class="svc-desc" style="margin-bottom:1rem;">When someone passes away, their estate must be carefully managed and distributed. This process of gathering assets, paying debts and taxes, and transferring property to heirs can be overwhelming for grieving families.</p>
+            <p class="svc-desc">I take on the full administrative burden, working with your attorney and CPA to ensure the estate is settled accurately and in compliance with the law.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">04</div>
+          <div>
+            <div class="svc-title">Conservatorship</div>
+            <p class="svc-desc">When an individual can no longer manage their own financial affairs or personal care due to age, illness, or disability, the court may appoint a conservator. As a professional conservator, I serve in the best interest of the conservatee, managing their finances, coordinating their care, and reporting to the court.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">05</div>
+          <div>
+            <div class="svc-title">Power of Attorney Agent</div>
+            <p class="svc-desc">Under a durable power of attorney, I act as your agent to manage financial or healthcare decisions when you are unable to do so yourself. This is an important planning tool that can help families avoid conservatorship proceedings entirely.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">06</div>
+          <div>
+            <div class="svc-title">Probate Administration</div>
+            <p class="svc-desc">Probate is the court-supervised process of distributing a decedent's assets. When there is no trust, or when assets fall outside a trust, probate is required. I handle all aspects, from filing the initial petition to final distribution, working closely with your probate attorney throughout.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">07</div>
+          <div>
+            <div class="svc-title">Special Needs Trust Administration</div>
+            <p class="svc-desc" style="margin-bottom:1rem;">A Special Needs Trust allows a person with a disability to receive trust assets without losing eligibility for government benefits like SSI and Medi-Cal.</p>
+            <p class="svc-desc">I provide attentive, individualized SNT administration, working within trust provisions to support the beneficiary's quality of life while protecting their benefit eligibility.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">08</div>
+          <div>
+            <div class="svc-title">Advisor to Family Fiduciary</div>
+            <p class="svc-desc">Sometimes a family member is named as trustee or conservator and simply needs guidance. I serve as a professional advisor, helping family fiduciaries understand their duties, stay compliant, and avoid costly mistakes, without taking over the role entirely.</p>
+          </div>
+        </div>
+
+        <div class="svc-item" style="padding:2.5rem 0; display:grid; grid-template-columns:2.5rem 1fr; gap:1.5rem; border-top:1px solid var(--border);">
+          <div class="svc-num">09</div>
+          <div>
+            <div class="svc-title">Pet Trust Administration</div>
+            <p class="svc-desc">California law recognizes pet trusts, allowing you to provide for the care of your animals after you are gone. As your pet trustee, I ensure that funds are used for your pet's care as you intended, working with designated caregivers to protect the animals you love.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class="cta-band">
+    <div class="inner-narrow">
+      <h2>Not sure which service applies?</h2>
+      <p>That is completely normal. Please reach out and we will figure it out together. Your first consultation is free.</p>
+      <div class="cta-btns"><a href="#" class="btn btn-gold" onclick="show('contact'); return false;">Schedule a Free Consultation</a></div>
+      <div class="cta-sub">Or call <a href="tel:+10000000000">[Your Phone Number]</a></div>
+    </div>
+  </div>
+</div><!-- /services -->
+
+
+<!-- ══════════════ FEES ══════════════ -->
+<div class="page" id="page-fees">
+  <div class="section">
+    <div class="inner-narrow">
+      <span class="label">Fee Schedule</span>
+      <h2 class="section-title">Transparent, straightforward fees</h2>
+      <p class="body-text">I believe you deserve to understand what professional fiduciary services cost before making any decisions. Below is my current fee schedule. If you have questions, please ask.</p>
+
+      <table class="fee-table">
+        <thead><tr><th>Service</th><th>Description</th><th>Rate</th></tr></thead>
+        <tbody>
+          <tr><td>Standard Rate</td><td>All professional fiduciary services, including management, records, communication, and court coordination</td><td>$[Rate]/hr</td></tr>
+          <tr><td>Complex Rate</td><td>Litigation, contested matters, court appearances, non-emergency nights and weekends</td><td>$[Rate]/hr</td></tr>
+          <tr><td>Active Case Minimum</td><td>Minimum monthly engagement for active cases</td><td>$[Amount]/mo</td></tr>
+        </tbody>
+      </table>
+
+      <hr class="divider">
+      <h3 style="font-family:var(--serif); font-size:1.3rem; font-weight:400; color:var(--ink); margin-bottom:1rem;">Billing Policies</h3>
+      <ul class="policy-list">
+        <li>All time is billed in 1/10th-hour increments</li>
+        <li>Fees are invoiced monthly and paid from client or trust funds where applicable</li>
+        <li>Conservatorship fees are subject to court approval per California Probate Code</li>
+        <li>Travel time is billed at the standard rate for one direction; long-distance travel billed at my discretion</li>
+        <li>Third-party professional costs are passed through at actual cost and are not part of my compensation</li>
+      </ul>
+
+      <div class="fee-note">The cost of mismanagement, such as errors, family disputes, court sanctions, or lost benefits, almost always far exceeds the cost of professional oversight. Professional fiduciary services are an investment in getting it right.</div>
+
+      <div class="regulatory">
+        [Your Full Name], CLPF #[Your License Number], is a Professional Fiduciary licensed by the Professional Fiduciaries Bureau with the California Department of Consumer Affairs. Fee schedule subject to change with reasonable notice. Verify at <strong>fiduciary.ca.gov</strong>.
+      </div>
+
+      <div style="margin-top:2.5rem;">
+        <a href="#" class="btn btn-forest" onclick="show('contact'); return false;">Questions? Schedule a Free Consultation</a>
+      </div>
+    </div>
+  </div>
+</div><!-- /fees -->
+
+
+<!-- ══════════════ CONTACT ══════════════ -->
+<div class="page" id="page-contact">
+  <div class="section">
+    <div class="inner">
+      <div class="contact-grid">
+        <div>
+          <span class="label">Contact</span>
+          <h2 class="section-title">Let's talk</h2>
+          <p class="body-text">Whether you are facing an urgent situation or simply planning ahead, I am here to help you understand your options. Your first conversation is always free.</p>
+          <div class="contact-details">
+            <div class="contact-row"><div class="contact-row-label">Phone</div><div class="contact-row-value"><a href="tel:+10000000000">[Your Phone Number]</a></div></div>
+            <div class="contact-row"><div class="contact-row-label">Email</div><div class="contact-row-value"><a href="mailto:your@email.com">[Your Email Address]</a></div></div>
+            <div class="contact-row"><div class="contact-row-label">License</div><div class="contact-row-value">CLPF #[Your License Number]</div></div>
+          </div>
+          <p class="contact-note">I respond to all inquiries within [X] business days. If your matter is urgent, please call directly. If I am not the right fit for your situation, I will do my best to connect you with someone who is.</p>
+        </div>
+        <div>
+          <div id="contact-form">
+            <div class="form-row">
+              <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Jane"></div>
+              <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Smith"></div>
+            </div>
+            <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="jane@example.com"></div>
+            <div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(408) 555-0100"></div>
+            <div class="form-group"><label class="form-label">How Can I Help?</label>
+              <select class="form-select">
+                <option value="">Select a service...</option>
+                <option>Professional Trustee</option><option>Trust Administration</option>
+                <option>Estate Administration</option><option>Conservatorship</option>
+                <option>Power of Attorney Agent</option><option>Probate Administration</option>
+                <option>Special Needs Trust Administration</option>
+                <option>Advisor to Family Fiduciary</option><option>Pet Trust Administration</option>
+                <option>Not Sure, I Need Guidance</option>
+              </select>
+            </div>
+            <div class="form-group"><label class="form-label">Tell Me About Your Situation</label><textarea class="form-textarea" placeholder="Share as much or as little as you like."></textarea></div>
+            <div class="form-group"><label class="form-label">How Did You Find Me?</label>
+              <select class="form-select">
+                <option value="">Select...</option>
+                <option>Google Search</option><option>Attorney Referral</option>
+                <option>CPA Referral</option><option>Friend or Family</option><option>Other</option>
+              </select>
+            </div>
+            <button class="form-submit" onclick="submitForm()">Send My Message</button>
+          </div>
+          <div class="form-success" id="form-success">
+            <h3>Thank you for reaching out.</h3>
+            <p>I will be in touch within [X] business days. If your matter is urgent, please call <a href="tel:+10000000000">[Your Phone Number]</a> directly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div><!-- /contact -->
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-name">Neeta Tagare</div>
+      <div class="footer-sub">Professional Fiduciary</div>
+      <p class="footer-tagline">Trusted fiduciary services for families, individuals, and legal professionals.</p>
+    </div>
+    <div>
+      <div class="footer-col-label">Pages</div>
+      <ul class="footer-links">
+        <li><a onclick="show('home')">Home</a></li>
+        <li><a onclick="show('about')">About</a></li>
+        <li><a onclick="show('services')">Services</a></li>
+        <li><a onclick="show('fees')">Fee Schedule</a></li>
+        <li><a onclick="show('contact')">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-label">Services</div>
+      <ul class="footer-links">
+        <li><a onclick="show('services')">Professional Trustee</a></li>
+        <li><a onclick="show('services')">Trust Administration</a></li>
+        <li><a onclick="show('services')">Conservatorship</a></li>
+        <li><a onclick="show('services')">Estate Administration</a></li>
+        <li><a onclick="show('services')">Special Needs Trusts</a></li>
+        <li><a onclick="show('services')">Pet Trust</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-regulatory">Neeta Tagare, CLPF #[Your License Number], is a Professional Fiduciary licensed by the Professional Fiduciaries Bureau with the California Department of Consumer Affairs. | fiduciary.ca.gov</p>
+    <p class="footer-copy">2025 Neeta Tagare</p>
+  </div>
+</footer>
+
+<script>
+  function show(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById('page-' + id).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    document.getElementById('nav-links').classList.remove('open');
+  }
+  function submitForm() {
+    document.getElementById('contact-form').style.display = 'none';
+    document.getElementById('form-success').style.display = 'block';
+  }
+  function toggleAc(btn) {
+    const isOpen = btn.classList.contains('open');
+    document.querySelectorAll('.ac-trigger.open').forEach(b => {
+      b.classList.remove('open');
+      b.nextElementSibling.style.display = 'none';
+    });
+    if (!isOpen) {
+      btn.classList.add('open');
+      btn.nextElementSibling.style.display = 'block';
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,0.3)' : 'none';
+  });
+</script>
+</body>
+</html>
